@@ -1,6 +1,5 @@
-\set nrows 145752
-\set delta 1 +  :nrows
-\set x random(1, :nrows)
+\set nrows :scale
+\set rid random(:scale, 10000 + :scale)
 begin;
-update logged set id = id + :delta where id = :x;
+delete from logged where id = :rid;
 end;
