@@ -1,6 +1,4 @@
-\set nrows 1411273
-\set delta 1 +  :nrows
-\set x random(1, :nrows)
+\set nrows :scale
 begin;
-update unlogged set id = id + :delta where id = :x;
+update unlogged set id = currval('iterator_2') where id = :nrows - nextval('iterator_2');
 end;
