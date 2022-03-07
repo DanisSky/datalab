@@ -1,6 +1,5 @@
-\set nrows 145752
-\set delta 1 +  :nrows
-\set x random(1, :nrows)
+\set nrows :scale
+\set rid random(1, :scale)
 begin;
-update logged set id = id + :delta where id = :x;
+update logged set id = currval('iterator_1') where id = :rid;
 end;

@@ -1,4 +1,5 @@
 \set nrows :scale
+\set rid random(1, :scale)
 begin;
-update unlogged set id = currval('iterator_2') where id = :nrows - nextval('iterator_2');
+update unlogged set id = nextval('iterator_2') where id = :rid;
 end;
